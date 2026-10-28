@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FarmLand Morning Advisory</title>
+  <meta name="description" content="Plain-language irrigation advice for growers, no field sensors required.">
+  <meta name="theme-color" content="#1f4d2b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>FarmLand</h1>
+      <p id="today"></p>
+    </div>
+    <span class="pill">Demo data</span>
+  </header>
+
+  <main>
+    <section id="view-advisory" class="view">
+      <p id="summary" class="summary"></p>
+      <div id="cards"></div>
+    </section>
+    <section id="view-map" class="view" hidden>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <nav class="tabs">
+    <button data-view="advisory" class="active">Morning Advisory</button>
+    <button data-view="map">Farm Map</button>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+[
+  {
+    "scenario_id": "SCEN-A",
+    "name": "3-Day Heatwave & Drought",
+    "short_name": "Heatwave",
+    "forecast_summary": "Sunny, hot & windy. High transpiration.",
+    "rain_24h_in": 0.0,
+    "et_deficit_in": 1.2,
+    "temp_max_f": 92,
+    "forecast_3day": [
+      { "label": "Today", "rain_in": 0.0, "temp_max_f": 92 },
+      { "label": "Tomorrow", "rain_in": 0.0, "temp_max_f": 95 },
+      { "label": "Day 3", "rain_in": 0.0, "temp_max_f": 97 }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-B",
+    "name": "Heavy Rain Expected",
+    "short_name": "Heavy Rain",
+    "forecast_summary": "Overcast with thunder showers in 24 hours.",
+    "rain_24h_in": 1.5,
+    "et_deficit_in": 0.1,
+    "temp_max_f": 70,
+    "forecast_3day": [
+      { "label": "Today", "rain_in": 1.5, "temp_max_f": 70 },
+      { "label": "Tomorrow", "rain_in": 0.3, "temp_max_f": 68 },
+      { "label": "Day 3", "rain_in": 0.0, "temp_max_f": 74 }
+    ]
+  },
+  {
+    "scenario_id": "SCEN-C",
+    "name": "Normal Transpiration",
+    "short_name": "Normal",
+    "forecast_summary": "Partially cloudy, mild breeze.",
+    "rain_24h_in": 0.0,
+    "et_deficit_in": 0.45,
+    "temp_max_f": 78,
+    "forecast_3day": [
+      { "label": "Today", "rain_in": 0.0, "temp_max_f": 78 },
+      { "label": "Tomorrow", "rain_in": 0.1, "temp_max_f": 80 },
+      { "label": "Day 3", "rain_in": 0.0, "temp_max_f": 77 }
+    ]
+  }
+]

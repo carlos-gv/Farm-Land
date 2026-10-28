@@ -1,0 +1,91 @@
+:root {
+  --bg: #f6f1e7;
+  --surface: #fffdf8;
+  --ink: #1d2a1f;
+  --muted: #667064;
+  --line: #e3dccb;
+  --green: #1f4d2b;
+  --high: #b3261e;
+  --high-bg: #fbe9e7;
+  --med: #b26a00;
+  --med-bg: #fff1d6;
+  --low: #3d6b35;
+  --low-bg: #e8f1e0;
+  --rain: #1f5f8b;
+  --rain-bg: #e2eff7;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-rounded, "Avenir Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+.topbar {
+  background: var(--green);
+  color: #fff;
+  padding: calc(14px + env(safe-area-inset-top)) 16px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 1000;
+}
+.topbar h1 { margin: 0; font-size: 20px; letter-spacing: .02em; }
+.topbar p { margin: 2px 0 0; font-size: 13px; opacity: .8; }
+.pill { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 4px 9px; border-radius: 99px; background: rgba(255,255,255,.18); }
+.view { max-width: 640px; margin: 0 auto; padding: 14px 16px 24px; }
+.view[hidden] { display: none; }
+.summary { margin: 2px 0 12px; color: var(--muted); font-size: 14px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--tone);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.tone-high { --tone: var(--high); --tone-bg: var(--high-bg); }
+.tone-med  { --tone: var(--med);  --tone-bg: var(--med-bg); }
+.tone-low  { --tone: var(--low);  --tone-bg: var(--low-bg); }
+.tone-rain { --tone: var(--rain); --tone-bg: var(--rain-bg); }
+
+.card-head { display: flex; gap: 10px; align-items: center; }
+.thumb { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; background: var(--line); flex: none; }
+.card-head .name { flex: 1; min-width: 0; }
+.card-head strong { display: block; font-size: 15px; }
+.card-head small { color: var(--muted); font-size: 12px; }
+.badge { font-size: 10.5px; font-weight: 800; letter-spacing: .05em; padding: 4px 8px; border-radius: 6px; white-space: nowrap; background: var(--line); color: var(--ink); }
+.badge.crit { background: var(--high-bg); color: var(--high); }
+.badge.mod { background: var(--med-bg); color: var(--med); }
+.badge.low { background: var(--low-bg); color: var(--low); }
+
+.stage { margin: 12px 0 4px; font-size: 13px; color: var(--muted); }
+.headline { margin: 0; font-size: 22px; line-height: 1.15; color: var(--tone); }
+.amount { margin-top: 8px; display: inline-block; background: var(--tone-bg); color: var(--tone); padding: 6px 10px; border-radius: 8px; font-size: 15px; }
+.amount b { font-size: 20px; }
+
+details.why { margin-top: 12px; }
+details.why summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--green); padding: 4px 0; }
+details.why p { margin: 6px 0 0; font-size: 14px; line-height: 1.45; }
+
+.forecast { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 12px; }
+.forecast div { background: var(--bg); border-radius: 8px; padding: 6px 8px; font-size: 12px; color: var(--muted); }
+.forecast b { display: block; color: var(--ink); font-size: 13px; }
+
+.sim { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.sim h3 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.sim label { display: block; font-size: 12px; color: var(--muted); margin: 8px 0 4px; }
+.sim select { width: 100%; font: inherit; font-size: 15px; padding: 9px 10px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.sim input[type=range] { width: 100%; accent-color: var(--green); }
+
+#map { height: calc(100vh - 150px); min-height: 360px; border-radius: 14px; border: 1px solid var(--line); }
+.popup strong { display: block; margin-bottom: 2px; }
+
+.tabs {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; background: var(--surface); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.tabs button { flex: 1; border: 0; background: none; font: inherit; font-weight: 700; font-size: 14px; padding: 16px 0; color: var(--muted); cursor: pointer; }
+.tabs button.active { color: var(--green); box-shadow: inset 0 3px 0 var(--green); }

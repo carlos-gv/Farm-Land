@@ -1,0 +1,22 @@
+[
+  {
+    "crop_id": "POT-01",
+    "crop_name": "Russet Potato",
+    "stages": [
+      { "stage_name": "Vegetative", "min_gdd": 0, "max_gdd": 300, "sensitivity": "LOW", "water_factor": 0.8, "stress_days_tolerance": 5, "description": "Canopy establishment; moderate water needs.", "advice_tip": "Light, infrequent watering encourages deeper roots." },
+      { "stage_name": "Tuber Initiation", "min_gdd": 301, "max_gdd": 600, "sensitivity": "MODERATE", "water_factor": 0.9, "stress_days_tolerance": 3, "description": "Stolons swell; avoid severe water stress.", "advice_tip": "Keep soil evenly moist to set tuber count." },
+      { "stage_name": "Tuber Bulking", "min_gdd": 601, "max_gdd": 1300, "sensitivity": "CRITICAL RISK", "water_factor": 1.0, "stress_days_tolerance": 2, "description": "High water demand; 48h deficit causes grading loss.", "advice_tip": "A deficit of more than 48 hours risks grade downgrades." },
+      { "stage_name": "Maturation", "min_gdd": 1301, "max_gdd": 2000, "sensitivity": "LOW", "water_factor": 0.5, "stress_days_tolerance": 7, "description": "Vines yellowing; reduce watering to prevent rot.", "advice_tip": "Overwatering now invites rot and skin problems." }
+    ]
+  },
+  {
+    "crop_id": "CORN-01",
+    "crop_name": "Sweet Corn",
+    "stages": [
+      { "stage_name": "Emergence", "min_gdd": 0, "max_gdd": 400, "sensitivity": "LOW", "water_factor": 0.7, "stress_days_tolerance": 7, "description": "Seedlings establishing; shallow roots.", "advice_tip": "Small, frequent applications are enough." },
+      { "stage_name": "Rapid Vegetative", "min_gdd": 401, "max_gdd": 1000, "sensitivity": "MODERATE", "water_factor": 0.9, "stress_days_tolerance": 4, "description": "Fast leaf and stalk growth; water use climbing.", "advice_tip": "Stress now cuts ear size potential." },
+      { "stage_name": "Tasseling & Silking", "min_gdd": 1001, "max_gdd": 1400, "sensitivity": "CRITICAL RISK", "water_factor": 1.0, "stress_days_tolerance": 2, "description": "Pollination window; drought stress causes poor kernel set.", "advice_tip": "Even 2 days of stress can cut yield sharply." },
+      { "stage_name": "Grain Fill", "min_gdd": 1401, "max_gdd": 1800, "sensitivity": "MODERATE", "water_factor": 0.8, "stress_days_tolerance": 4, "description": "Kernels filling; steady moisture protects quality.", "advice_tip": "Keep moisture steady until harvest." }
+    ]
+  }
+]

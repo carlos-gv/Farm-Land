@@ -1,0 +1,11 @@
+{
+  "rain_skip_threshold_in": 0.5,
+  "high_urgency_deficit_in": 1.0,
+  "max_application_in": 1.5,
+  "round_to_in": 0.05,
+  "risk_levels": {
+    "LOW": { "score": 1, "label": "LOW" },
+    "MODERATE": { "score": 2, "label": "MODERATE" },
+    "CRITICAL RISK": { "score": 3, "label": "CRITICAL RISK" }
+  }
+}

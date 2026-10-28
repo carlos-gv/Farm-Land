@@ -1,0 +1,34 @@
+[
+  {
+    "field_id": "FLD-02", "field_name": "North Pivot - Field 2", "crop_id": "POT-01",
+    "planting_date": "2026-05-01", "acres": 120, "lat": 43.6150, "lng": -116.2023,
+    "accumulated_gdd": 750, "active_scenario_id": "SCEN-A",
+    "soil": "Sandy loam", "irrigation": "Center pivot", "last_irrigated": "2026-10-25",
+    "photo_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=300&q=60",
+    "boundary": [[43.6182,-116.2067],[43.6182,-116.1979],[43.6118,-116.1979],[43.6118,-116.2067]]
+  },
+  {
+    "field_id": "FLD-01", "field_name": "South 40 - Field 1", "crop_id": "POT-01",
+    "planting_date": "2026-04-10", "acres": 40, "lat": 43.6080, "lng": -116.2023,
+    "accumulated_gdd": 1450, "active_scenario_id": "SCEN-B",
+    "soil": "Silt loam", "irrigation": "Solid-set sprinkler", "last_irrigated": "2026-10-23",
+    "photo_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=300&q=60",
+    "boundary": [[43.6098,-116.2048],[43.6098,-116.1998],[43.6062,-116.1998],[43.6062,-116.2048]]
+  },
+  {
+    "field_id": "FLD-03", "field_name": "East Block - Field 3", "crop_id": "POT-01",
+    "planting_date": "2026-05-20", "acres": 80, "lat": 43.6150, "lng": -116.1890,
+    "accumulated_gdd": 450, "active_scenario_id": "SCEN-C",
+    "soil": "Sandy loam", "irrigation": "Center pivot", "last_irrigated": "2026-10-26",
+    "photo_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=300&q=60",
+    "boundary": [[43.6175,-116.1925],[43.6175,-116.1855],[43.6125,-116.1855],[43.6125,-116.1925]]
+  },
+  {
+    "field_id": "FLD-04", "field_name": "West Quarter - Field 4", "crop_id": "CORN-01",
+    "planting_date": "2026-05-05", "acres": 160, "lat": 43.6150, "lng": -116.2230,
+    "accumulated_gdd": 1150, "active_scenario_id": "SCEN-A",
+    "soil": "Loam", "irrigation": "Center pivot", "last_irrigated": "2026-10-24",
+    "photo_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=300&q=60",
+    "boundary": [[43.6190,-116.2290],[43.6190,-116.2170],[43.6110,-116.2170],[43.6110,-116.2290]]
+  }
+]
