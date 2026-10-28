@@ -86,9 +86,9 @@ function cardHtml(f) {
       <div class="sim">
         <h3>⚡ Demo Scenario Simulator</h3>
         <label>Weather scenario</label>
-        <select class="scen">${options}</select>
+        <select class="scen" aria-label="Weather scenario">${options}</select>
         <label>Crop progress: <span class="gdd-val">${c.cf.gdd}</span> GDD</label>
-        <input class="gdd" type="range" min="0" max="${maxGdd}" step="10" value="${c.cf.gdd}">
+        <input class="gdd" type="range" aria-label="Crop progress in GDD" min="0" max="${maxGdd}" step="10" value="${c.cf.gdd}">
       </div>
     </article>`;
 }
