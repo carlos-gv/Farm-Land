@@ -1,0 +1,7 @@
+line_id,sector_id,share_pct
+L1,S1,100
+L2,S2,100
+L3,S2,45
+L3,S3,55
+L4,S3,100
+L5,S2,100

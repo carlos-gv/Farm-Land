@@ -1,0 +1,3 @@
+id,name,capacity_gal,max_outflow_gpm,planned_inflow_gpd
+R1,Main Pond,6000000,2200,430000
+R2,Well Tank,2500000,700,400000

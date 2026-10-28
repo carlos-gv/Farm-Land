@@ -1,0 +1,9 @@
+crop_id,crop_name,stage,min_gdd,max_gdd,kc,sensitivity,tip
+POT-01,Russet Potato,Vegetative,0,300,0.55,LOW,"Light, infrequent watering encourages deeper roots."
+POT-01,Russet Potato,Tuber Initiation,301,600,0.85,MODERATE,Keep soil evenly moist to set tuber count.
+POT-01,Russet Potato,Tuber Bulking,601,1300,1.15,CRITICAL RISK,A deficit of more than 48 hours risks grade downgrades.
+POT-01,Russet Potato,Maturation,1301,2000,0.75,LOW,Overwatering now invites rot and skin problems.
+CORN-01,Sweet Corn,Emergence,0,400,0.4,LOW,"Small, frequent applications are enough."
+CORN-01,Sweet Corn,Rapid Vegetative,401,1000,0.8,MODERATE,Stress now cuts ear size potential.
+CORN-01,Sweet Corn,Tasseling & Silking,1001,1400,1.15,CRITICAL RISK,Even 2 days of stress can cut yield sharply.
+CORN-01,Sweet Corn,Grain Fill,1401,1800,0.9,MODERATE,Keep moisture steady until harvest.

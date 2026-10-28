@@ -1,0 +1,9 @@
+key,value
+rain_skip_in,0.5
+min_application_in,0.5
+max_application_in,1.5
+start_time,06:00
+start_deficit_in,0.2
+eff_rain_min_in,0.1
+eff_rain_cap_in,1
+low_reservoir_pct,25

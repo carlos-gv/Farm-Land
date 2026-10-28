@@ -1,0 +1,14 @@
+{
+  "name": "FarmLand demo",
+  "short_name": "FarmLand",
+  "description": "Irrigation tracking, water use and 30-day planning (demo data).",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1f4f2",
+  "theme_color": "#0f4c3a",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

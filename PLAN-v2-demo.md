@@ -1,6 +1,6 @@
 # FarmLand v2 Demo: UI-first walkthrough for investors and jury
 
-Status: draft. Builder: one person. Time: 2 days. Parent plan: `PLAN-v2.md` (the real product). This file only covers the demo.
+Status: built (see section 13 for what changed while building). Builder: one person. Time: 2 days. Parent plan: `PLAN-v2.md` (the real product). This file only covers the demo.
 
 ## 1. Purpose and constraints
 
@@ -37,11 +37,11 @@ Status: draft. Builder: one person. Time: 2 days. Parent plan: `PLAN-v2.md` (the
 
 The presenter holds the phone, with the laptop mirroring it.
 
-1. **Dashboard** (30 s). "This is Boise Valley Farm. Last 14 days: 2.1 million gallons used, rain in blue. Main Pond is at 58%, about 9 days of water left."
-2. **Today** (45 s). A banner says "Irrigate North Pivot today, 6:00 AM, 14 h 20 min, about 516,000 gal." Tap **Start** on a line. The timer runs (demo clock x60). Tap **Stop**. The result shows `600 gpm x 12.5 min = 7,500 gal`.
+1. **Dashboard** (30 s). "This is Boise Valley Farm. Last 14 days: 8.2 million gallons used, rain in the strip below. Main Pond is at 77%, about 9 days of water left at recent use."
+2. **Today** (45 s). A banner says "Irrigate Shared Lateral today, 6:00 AM, 14 h 17 min, about 342,800 gal." Tap **Start** on a line. The timer runs (demo clock x60). Tap **Stop**. The card shows the live `rate x minutes = gallons` line, and the toast shows the saved volume.
 3. **Log a past run** (30 s). Add yesterday's run on the shared lateral. Show how its water splits between East Block and West Corn.
 4. **Plan** (60 s). 30-day schedule. Tap an item to see why ("Deficit 0.52 in, rain 0.0 in, Tuber Bulking"). Days 17 to 30 are labeled "typical". Switch the scenario to **Heavy rain** and watch irrigation items disappear. Switch to **Heatwave** and see a reservoir shortfall warning.
-5. **Farm** (45 s). Open Line 3, change its rate from 300 to 320 gpm. Show version history. Past totals stay at 300; the plan's minutes change.
+5. **Farm** (45 s). Open Shared Lateral, change its rate from 400 to 420 gpm. Show version history. Past runs stay at 400 gpm and their totals do not change; the plan's minutes recompute.
 6. **Reservoirs** (20 s). Add a refill. The level and "days left" update.
 7. **Report** (30 s). Pick the last 14 days, expand a total to show its runs and formulas, tap **Export PDF**.
 8. **Offline** (30 s). Flip **Simulate offline**, log a run, show "1 change waiting", flip back, show "Synced". Close with the unit toggle (gal to L, acre to ha).
@@ -67,7 +67,7 @@ All numbers drill into the Report screen.
 
 ### 3.2 Today (tab 2)
 
-- **Due now banner** (the in-app reminder), with a plain sentence: "Irrigate North Pivot today at 6:00 AM for 14 h 20 min, about 516,000 gal. No rain expected."
+- **Due now banner** (the in-app reminder), with a plain sentence: "Irrigate Shared Lateral today at 6:00 AM for 14 h 17 min, about 342,800 gal (East Block + West Corn)."
 - **Line cards** (5): name, sector(s), reservoir, rate, status (idle / running / due). Big **Start** or **Stop** button, live timer, running volume (`rate x elapsed`).
 - **Flow warning** if running lines exceed a reservoir's max outflow.
 - **Floating "+ Log run"** button, opens the Log sheet.
@@ -116,7 +116,7 @@ Files are loaded at start and kept in memory. Values are labeled demo data and a
 | `sectors.csv` | id, name, area_ac, crop_id, gdd_now, fallback_weekly_in | North Pivot (Russet Potato, 40 ac), East Block (Russet Potato, 25 ac), West Corn (Sweet Corn, 30 ac) |
 | `lines.csv` | id, name, rate_gpm, reservoir_id, system, efficiency | 5 lines, see below |
 | `line_sectors.csv` | line_id, sector_id, share_pct | Shares sum to 100 per line. Shared lateral splits 45 / 55. |
-| `reservoirs.csv` | id, name, capacity_gal, max_outflow_gpm, level_gal | Main Pond, Well Tank |
+| `reservoirs.csv` | id, name, capacity_gal, max_outflow_gpm, planned_inflow_gpd | Main Pond, Well Tank. Planned inflow is an assumption the plan uses for refills; real refills are entered by the user. |
 | `crops.csv` | crop_id, crop_name, stage, min_gdd, max_gdd, kc, sensitivity, tip | From v1 `data/crops.json`, plus a Kc per stage |
 | `runs.csv` | id, line_id, start_iso, seconds, source, rate_gpm_snapshot, note | About 25 runs over the 14 days before the demo date, mixed `timer` and `manual` |
 | `reservoir_readings.csv` | reservoir_id, kind, gal, at_iso | Levels, one refill, one withdrawal confirmation with a small difference |
@@ -128,16 +128,16 @@ Files are loaded at start and kept in memory. Values are labeled demo data and a
 
 | Line | Rate | Sector (share) | Reservoir | System |
 | --- | --- | --- | --- | --- |
-| L1 North Pivot | 600 gpm | North Pivot (100%) | Main Pond | Pivot |
-| L2 East Drip 1 | 90 gpm | East Block (100%) | Well Tank | Drip |
-| L3 Shared Lateral | 300 gpm | East Block (45%), West Corn (55%) | Well Tank | Sprinkler |
-| L4 West Pivot | 400 gpm | West Corn (100%) | Main Pond | Pivot |
-| L5 East Drip 2 | 90 gpm | East Block (100%) | Well Tank | Drip |
+| L1 Pivot 1 | 1,200 gpm | North Pivot (100%) | Main Pond | Pivot |
+| L2 East Drip 1 | 200 gpm | East Block (100%) | Well Tank | Drip |
+| L3 Shared Lateral | 400 gpm | East Block (45%), West Corn (55%) | Well Tank | Sprinkler |
+| L4 Pivot 2 | 800 gpm | West Corn (100%) | Main Pond | Pivot |
+| L5 East Drip 2 | 200 gpm | East Block (100%) | Well Tank | Drip |
 
 | Reservoir | Capacity | Max outflow | Lines |
 | --- | --- | --- | --- |
-| Main Pond | 3,000,000 gal | 1,200 gpm | L1, L4 (1,000 gpm together) |
-| Well Tank | 500,000 gal | 500 gpm | L2, L3, L5 (480 gpm together) |
+| Main Pond | 6,000,000 gal | 2,200 gpm | L1, L4 (2,000 gpm together) |
+| Well Tank | 2,500,000 gal | 700 gpm | L2, L3, L5 (800 gpm together, so one line waits its turn) |
 
 The seed numbers are tuned so that: Normal gives a clean schedule, Heavy rain skips most days, and Heatwave produces one visible shortfall on the Well Tank. This is checked by hand before the demo (section 8).
 
@@ -149,7 +149,7 @@ State is in memory only. Reload or **Reset demo** returns to the start.
 | --- | --- | --- |
 | A1 | Start / Stop a line | Live timer using the demo clock. On stop, a run is added with exact seconds and volume, the reservoir level drops, and dashboard, report and plan carry-over update. |
 | A2 | Log a past run | The same record as A1, `source = manual`. Shows the formula and the sector split. |
-| A3 | Edit Line 3 rate (300 to 320 gpm) | Creates version 2 with an effective time. History shows both. Past runs stay at 300. Plan minutes recompute. Other fields are disabled. |
+| A3 | Edit Shared Lateral rate (400 to 420 gpm) | Creates version 2 with an effective time. History shows both. Past runs stay at 400. Plan minutes recompute. Other fields are disabled. |
 | A4 | Add reservoir refill / reading / withdrawal confirmation | Level and days-left update. A withdrawal confirmation shows the difference from the computed value. |
 | A5 | Switch scenario | Plan, dashboard strip and alerts recompute. |
 | A6 | Unit toggles | Display only. |
@@ -262,7 +262,7 @@ Never cut: exact run math with visible formula, Dashboard, Today with timer, Pla
 - [ ] Every run shows `rate x minutes = gallons` and matches a hand calculation.
 - [ ] Sector splits add up to the run volume exactly.
 - [ ] Dashboard, Today and Report totals agree for the same period.
-- [ ] After the Line 3 edit, old runs still show 300 gpm and the same gallons.
+- [ ] After the Line 3 edit, old runs still show 400 gpm and the same gallons.
 - [ ] Unit toggles change display only; toggling back shows the original values.
 
 **Plan**
@@ -303,3 +303,14 @@ Never cut: exact run math with visible formula, Dashboard, Today with timer, Pla
 ## 12. After the demo
 
 Items that carry over to the real build (`PLAN-v2.md`): move `lib/` into `packages/core`, replace in-memory state with IndexedDB and sync, replace canned weather with the weather adapter, replace the print view with a real report, add auth, roles and the conflict flow, and decide the compliance report layout with the pilot farm.
+
+## 13. Build notes (what changed while building)
+
+- **Seed numbers.** Rates and reservoir sizes were raised so run times stay realistic (a pivot pass takes about 11 h, not 30 h). Line names are Pivot 1 and Pivot 2. The edit path is Shared Lateral, 400 to 420 gpm.
+- **Seed generator.** `tools/gen-seed.mjs` writes all the CSVs. The past 14 days of runs come from the same planner the app uses, with small timing jitter. Run `node tools/gen-seed.mjs` to regenerate them.
+- **Planned inflow.** Reservoirs have `planned_inflow_gpd` (an assumption for refills in the plan). Without it, any 30-day plan would drain the ponds.
+- **Shared lines.** When a line serves two sectors, running it credits both. The planner applies that water to both sectors' deficits, so a sector can need less because its neighbour was irrigated.
+- **Plan scenarios.** Normal has no shortfall. Heatwave shows runs short of water on the Well Tank from about day 9 and a low Main Pond by day 30. Heavy rain has no irrigation for the 16 forecast days, and a rain-skip day.
+- **Tests.** `node --test tests/math.test.mjs` (10 tests): exact run math, sector splits, unit round trips, rounding, seed recompute, and plan invariants (gallons = rate x minutes, flow limits, scenario differences).
+- **Not built (cut list):** month grid in Plan, GDD slider, dark-theme toggle (dark follows the device setting), withdrawal-confirmation difference is shown but there is no calibration hint.
+- **Checked in headless Chrome:** phone and desktop layouts, no horizontal scroll, no console errors, real offline reload with the server stopped. Not yet checked on a physical iPhone or Android phone.

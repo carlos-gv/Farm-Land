@@ -1,0 +1,6 @@
+id,name,rate_gpm,reservoir_id,system,efficiency
+L1,Pivot 1,1200,R1,Pivot,0.85
+L2,East Drip 1,200,R2,Drip,0.9
+L3,Shared Lateral,400,R2,Sprinkler,0.75
+L4,Pivot 2,800,R1,Pivot,0.85
+L5,East Drip 2,200,R2,Drip,0.9

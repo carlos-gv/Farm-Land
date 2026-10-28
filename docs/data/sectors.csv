@@ -1,0 +1,4 @@
+id,name,area_ac,crop_id,gdd_now,fallback_weekly_in
+S1,North Pivot,40,POT-01,780,1.5
+S2,East Block,25,POT-01,520,1.5
+S3,West Corn,30,CORN-01,1150,1.6
